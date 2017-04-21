@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+          padding-top: 40px;
+          padding-bottom: 40px;
+          background-color: #eee;
+      }
+
+      .form-signin {
+          max-width: 330px;
+          padding: 15px;
+          margin: 0 auto;
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+          margin-bottom: 10px;
+      }
+      .form-signin .checkbox {
+          font-weight: normal;
+      }
+      .form-signin .form-control {
+          position: relative;
+          height: auto;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 10px;
+          font-size: 16px;
+      }
+      .form-signin .form-control:focus {
+          z-index: 2;
+      }
+      .form-signin input[type="email"] {
+          margin-bottom: -1px;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+      }
+      .form-signin input[type="password"] {
+          margin-bottom: 10px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+      }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+        <p>Seu nome de usuário e senha não correspondem. Por favor, tente novamente.</p>
+        </div>
+        {% endif %}
+        <form class="form-signin" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Por favor, entre</h2>
+            <label for="inputEmail" class="sr-only">Usuário</label>
+            <input type="text" id="{{form.username.auto_id}}" name="{{form.username.html_name}}" class="form-control" placeholder="Usuário" required autofocus>
+            <label for="inputPassword" class="sr-only">Senha</label>
+            <input type="password" id="{{form.password.auto_id}}" name="{{form.password.html_name}}" class="form-control" placeholder="Senha" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+
+    </div> <!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{% extends 'mydiary/base.html' %}
+{% block content %}
+{% for diary in diario %}
+<div class="date">
+    <h4><p>Horario de Entrada: {{ diary.data_entrada }}</p></h4>
+    <div class="post">
+        <h4><p>Tarefas diárias: {{ diary.tarefa}}</p></h4>
+        <div class="resultados">
+            <h4><p>Resultados alcançados: {{ diary.resultados }}</p></h4>
+            <div class="avaliacao">
+                <h4><p>Avaliação de desempenho: {{ diary.avaliacao }}</p></h4>
+                <div class="atividades">
+                    <h4><p>Atividades Futuras: {{ diary.atividades_futuras}}</p></h4>
+                      <div class="Hora de saída">
+                    <h4><p>Hora de saída: {{ diary.data_saida}}</p></h4>
+                    <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'mydiary/base.html' %}
+
+{% block content %}
+{% if not diario %}
+    <a style="margin-left:60%; margin-top:20%;" href="{% url 'post_new' %}" class="btn btn-success btn-lg">Registrar entrada</a>
+{% elif not diario.data_saida %}
+    <a class="btn btn-danger btn-lg" href="{% url 'post_edit' pk=diario.pk %}">Registrar saída</a>
+{% endif %}
+{% endblock %}

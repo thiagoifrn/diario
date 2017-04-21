@@ -1,0 +1,24 @@
+{% extends 'mydiary/base.html' %}
+{% block content %}
+    <div>
+    {% if  not diario.data_saida %}
+        Registrar Saída  <a class="btn btn-default" href="{% url 'post_edit' pk=diario.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    {% endif %}
+    </div>
+    <div>
+            ### **Diário - {{ diario.data_entrada|date:"SHORT_DATE_FORMAT" }}** (Tempo Estimado: 10 minutos )<br>
+            <br>
+            #### **1. Objetivo a ser alcançado**<br>
+            * {{ diario.tarefa }}<br>
+            <br>
+            #### **2. Resultados Alcançados**<br>
+            * {{ diario.resultados }}<br>
+            <br>
+            #### **3. Avaliação Pessoal dos Resultados**<br>
+            * {{ diario.avaliacao }}<br>
+            <br>
+            #### **4. Atividades Futuras**<br>
+            * {{ diario.atividades_futuras }}<br>
+    </div>
+{% endblock %}
+
